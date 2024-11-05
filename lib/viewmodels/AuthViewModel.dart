@@ -84,7 +84,7 @@ class AuthProvider with ChangeNotifier {
       if (_user != null) {
         _isLoggedIn = true;
 
-        // Store user data in shared preferences
+
         await _storeUserData({
           'userId': _user?.userId,
           'email': _user?.email,

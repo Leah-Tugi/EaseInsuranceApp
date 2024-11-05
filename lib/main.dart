@@ -16,7 +16,7 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()),
-        // Add any other providers here as needed
+
       ],
       child: EaseInsuranceApp(),
     ),
@@ -31,8 +31,8 @@ void _setupLogging() {
 }
 
 class EaseInsuranceApp extends StatelessWidget {
-  final Color _primaryColor = HexColor('#DC54FE'); // Primary color
-  final Color _accentColor = HexColor('#0000FF'); // Accent color
+  final Color _primaryColor = HexColor('#DC54FE');
+  final Color _accentColor = HexColor('#0000FF');
 
   @override
   Widget build(BuildContext context) {
@@ -43,14 +43,14 @@ class EaseInsuranceApp extends StatelessWidget {
         primaryColor: _primaryColor,
         hintColor: _accentColor,
         scaffoldBackgroundColor: Colors.grey.shade100,
-        primarySwatch: Colors.blue, // Default primary swatch color
+        primarySwatch: Colors.blue,
       ),
-      initialRoute: '/', // Start with the splash screen
+      initialRoute: '/',
       routes: {
-        '/': (context) => SplashScreen(), // Set SplashScreen as the initial screen
+        '/': (context) => SplashScreen(),
         '/login': (context) => LoginScreen(),
         '/register': (context) => RegisterScreen(),
-        '/insuranceList': (context) => InsuranceListScreen(userId: '_',), // Add route for insurance list
+        '/insuranceList': (context) => InsuranceListScreen(userId: '_',),
       },
     );
   }

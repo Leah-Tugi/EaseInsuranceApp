@@ -5,8 +5,9 @@ import '../utils/widgets/OutlineInputWidget.dart';
 
 class InsuranceAddScreen extends StatefulWidget {
   final String userId;
+  final VoidCallback refreshList;
 
-  InsuranceAddScreen({required this.userId});
+  InsuranceAddScreen({required this.userId,required this.refreshList});
 
   @override
   _InsuranceAddScreenState createState() => _InsuranceAddScreenState();
@@ -58,8 +59,11 @@ class _InsuranceAddScreenState extends State<InsuranceAddScreen> {
           SnackBar(content: Text('Insurance added successfully!')),
         );
 
+        widget.refreshList();
+
         // Clear the form fields (optional)
         _formKey.currentState?.reset();
+
 
         // Go back to the previous screen
         Navigator.pop(context);

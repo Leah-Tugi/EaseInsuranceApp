@@ -22,7 +22,7 @@ class _InsuranceEditScreenState extends State<InsuranceEditScreen> {
   @override
   void initState() {
     super.initState();
-    _nameController = TextEditingController(text: widget.insurance.insuranceName); // Changed to insuranceName
+    _nameController = TextEditingController(text: widget.insurance.insuranceName);
     _countryController = TextEditingController(text: widget.insurance.country);
     _hospitalsController = TextEditingController(text: widget.insurance.hospitals.join(', '));
     _annualPriceController = TextEditingController(text: widget.insurance.annualPrice.toString());
@@ -43,16 +43,16 @@ class _InsuranceEditScreenState extends State<InsuranceEditScreen> {
         double annualPrice = double.parse(_annualPriceController.text);
         Insurance updatedInsurance = Insurance(
           id: widget.insurance.id,
-          insuranceName: _nameController.text, // Changed to insuranceName
+          insuranceName: _nameController.text,
           country: _countryController.text,
           hospitals: _hospitalsController.text.split(', '),
           annualPrice: annualPrice,
-          userId: widget.insurance.userId, // Pass the userId from the existing insurance
-          createdAt: widget.insurance.createdAt, // Retain the original createdAt
+          userId: widget.insurance.userId,
+          createdAt: widget.insurance.createdAt,
         );
 
         await InsuranceService().updateInsurance(updatedInsurance);
-        Navigator.pop(context, updatedInsurance); // Return the updated insurance
+        Navigator.pop(context, updatedInsurance);
       } catch (e) {
         // Show an error message if parsing fails
         ScaffoldMessenger.of(context).showSnackBar(

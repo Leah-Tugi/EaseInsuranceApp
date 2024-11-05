@@ -19,7 +19,7 @@ class InsuranceService {
     print('Response Body: ${response.body}');
 
     if (response.statusCode == 201) {
-      // getInsurancesForUser()
+
       print('Insurance added successfully');
     } else {
       print('Failed to add insurance');
@@ -70,7 +70,7 @@ class InsuranceService {
       }),
     );
 
-    // Log the request and response
+
     print('PUT Request URL: $baseUrl/${insurance.id}');
     print('Request Body: ${json.encode({
       'name': insurance.insuranceName,

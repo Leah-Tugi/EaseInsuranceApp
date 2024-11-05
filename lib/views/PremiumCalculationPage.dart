@@ -45,7 +45,7 @@ class _PremiumCalculationScreenState extends State<PremiumCalculationScreen> {
         return;
       }
 
-      _calculatedPremium = _selectedInsurance!.annualPrice! * monthsCovered / 12; // Calculate premium
+      _calculatedPremium = _selectedInsurance!.annualPrice! * monthsCovered / 12;
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -79,13 +79,13 @@ class _PremiumCalculationScreenState extends State<PremiumCalculationScreen> {
               onChanged: (Insurance? newValue) {
                 setState(() {
                   _selectedInsurance = newValue;
-                  _calculatedPremium = null; // Reset calculated premium
+                  _calculatedPremium = null;
                 });
               },
               items: _insurances.map((insurance) {
                 return DropdownMenuItem(
                   value: insurance,
-                  child: Text(insurance.insuranceName!), // Updated to insuranceName
+                  child: Text(insurance.insuranceName!),
                 );
               }).toList(),
             ),

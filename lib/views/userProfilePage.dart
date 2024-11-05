@@ -4,9 +4,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/UserData.dart';
 import '../utils/widgets/OutlineInputWidget.dart';
 import '../viewmodels/AuthViewModel.dart';
+import 'LoginPage.dart';
 
 class ProfileScreen extends StatefulWidget {
-  final String userId; // Pass userId to ProfileScreen
+  final String userId;
 
   ProfileScreen({required this.userId});
 
@@ -90,10 +91,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
+  Future<void> _logout() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.clear(); // Clear all saved data
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+          builder: (context) => LoginScreen()), // Navigate to login
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Profile')),
+      appBar: AppBar(
+        title: Text('Profile'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () {
+              _logout();
+            },
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),

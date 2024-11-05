@@ -40,6 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 controller: _passwordController,
                 label: 'Password',
                 obscureText: true,
+
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Enter a password';
@@ -67,9 +68,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   }
                 },
                 child: Container(
-                  width: double.infinity, // Make button full width
-                  height: 50, // Set height
-                  margin: EdgeInsets.symmetric(horizontal: 16), // Set horizontal margin
+                  width: double.infinity,
+                  height: 50,
+                  margin: EdgeInsets.symmetric(horizontal: 16),
                   child: Center(child: Text('Login')),
                 ),
               ),

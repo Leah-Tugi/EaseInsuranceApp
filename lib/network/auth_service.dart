@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 
 class AuthService {
-  final String baseUrl = 'https://6703f084ab8a8f8927324c50.mockapi.io/api/v1/users'; // Replace YOUR_PROJECT_ID with your actual project ID
+  final String baseUrl = 'https://6703f084ab8a8f8927324c50.mockapi.io/api/v1/users';
 
   Future<UserData?> loginUser(String email, String password) async {
     final response = await http.get(Uri.parse('$baseUrl?email=$email&password=$password'));
